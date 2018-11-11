@@ -1,0 +1,5 @@
+p-tree .ui-tree{
+    border: unset;
+    background-color: rgba(0,0,0,0.01);
+    width: 24em;
+}

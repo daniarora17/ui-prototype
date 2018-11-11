@@ -1,0 +1,20 @@
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+.nested-list {
+    padding-right: 42px;
+}
+
+.delete-icon .pi-times-circle{
+    vertical-align: bottom;
+}

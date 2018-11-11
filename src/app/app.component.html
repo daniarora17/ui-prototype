@@ -1,0 +1,61 @@
+<div class="ui-g">
+    <div class="ui-g-3">
+        <p-sidebar [(visible)]="visibleSidebar1" [(dismissible)]="dismissableSidebar" [baseZIndex]="0"
+            [(showCloseIcon)]="showCloseIcon">
+            <app-sidebar style="width: 100%; height: 100%;" (selectedItem)="pushItem($event)"></app-sidebar>
+        </p-sidebar>
+        <div class="sidebar-controls">
+            <div class="gear-icon">
+                <i class="pi pi-cog"></i>
+            </div>
+            <span class="control-text">EDIT PROPERTIES</span>
+            <span class="angle-icon">
+                <i class="pi pi-angle-right"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="ui-g-9 ui-g-nopad">
+        <div class="sticky-header">
+            <div class="data-sets-main">
+                <span class="add-data-set">
+                    <i class="pi pi-plus-circle"></i>
+                    <span>Add Data Set</span>
+                </span>
+                <div class="divider"></div>
+                <span class="access-list">
+                    <i class="pi pi-paperclip"></i>
+                    <span>Access List</span>
+                </span>
+            </div>
+            <div class="header-block-2">
+                <div class="breadcrumb-main">
+                    <p-breadcrumb [model]="items"></p-breadcrumb>
+                </div>
+                <div class="view-controls">
+                    <i class="pi pi-search"></i>
+                    <div class="divider"></div>
+                    <i class="pi pi-filter"></i>
+                    <div class="divider"></div>
+                    <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+                    <span>Customer View</span>
+                </div>
+            </div>
+        </div>
+        <div class="fields-main">
+            <app-main-window style="overflow: auto;" [data]="sidebar" [selectedItem]="selectedItem"></app-main-window>
+        </div>
+    </div>
+</div>
+
+<!-- <div id="wrapper">
+    <div id="top-nav">
+        <p-breadcrumb [model]="items"></p-breadcrumb>
+    </div>
+    <div id="side-nav">
+        <app-sidebar style="width: 100%; height: 100%;" (selectedItem)="pushItem($event)"></app-sidebar>
+    </div>
+    <div id="content-wrapper">
+        <app-main-window style="overflow: auto;" [data]="sidebar" [selectedItem]="selectedItem"></app-main-window>
+    </div>
+  </div> -->

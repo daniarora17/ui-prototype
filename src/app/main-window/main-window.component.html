@@ -1,0 +1,35 @@
+<div *ngFor="let d of data; let i = index;">
+  <h3 [ngStyle]="{'marginLeft':getMargin(d.data)}" *ngIf="d.children">{{d.label}}</h3>
+  <div [ngStyle]="{'marginLeft':getMargin(d.data)}" *ngIf="type == 'list' && parentType == 'list'; else second">
+
+        <p>{{d.label}}</p>
+        <input style="margin-bottom: 5px;" id="input" type="text" size="30" pInputText [(ngModel)]="d.data.value" [attr.placeholder]="d.label">
+        <i class="pi pi-minus-circle"></i>
+        <p *ngIf="i === data.length-1"><i class="pi pi-plus-circle"></i></p>
+        
+    <!--<p-table [columns]="cols" [value]="table" [paginator]="false" [rows]="5">
+          <ng-template pTemplate="header" let-columns>
+              <tr>
+                  <th *ngFor="let col of columns">
+                      {{col.header}}
+                  </th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr>
+                  <td *ngFor="let col of columns">
+                      {{rowData[col.field]}}
+                  </td>
+              </tr>
+          </ng-template>
+      </p-table>-->
+    
+  </div>
+  <ng-template #second>
+    <div *ngIf="d.children === undefined">
+        <p [ngStyle]="{'marginLeft':getMargin(d.data)}" style="margin-bottom: 5px;">{{d.label}}</p>
+        <input [ngStyle]="{'marginLeft':getMargin(d.data)}" style="margin-bottom: 5px;" id="input" type="text" size="30" pInputText [(ngModel)]="d.data.value" [attr.placeholder]="d.label">
+      </div>
+  </ng-template>
+  <app-main-window *ngIf="d.children && d.children.length" [data]="d.children" [parentType]="type" [type]="d.data.type"></app-main-window>
+</div>

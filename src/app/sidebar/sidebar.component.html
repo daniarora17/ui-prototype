@@ -1,0 +1,11 @@
+<p-tree 
+    [style]="{'max-height':'90%','overflow':'auto'}" 
+    selectionMode="single" 
+    [(selection)]="selectedNode" 
+    [value]="sidebar" 
+    (onNodeSelect)="nodeSelect($event)"
+    >
+    <ng-template let-node  pTemplate="role">
+        <p>{{node.label}} : {{node.data.value}}</p>
+    </ng-template>
+</p-tree>

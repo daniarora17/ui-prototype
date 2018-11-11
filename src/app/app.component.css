@@ -1,0 +1,201 @@
+.ui-sidebar-mask{
+    position: inherit;
+}
+
+p-sidebar .ui-sidebar{
+    background-color: rgba(0,0,0,0.1);
+    width: 320px;
+    min-width: 250px;
+    width: 24%;
+}
+
+.control-text {
+    line-height: 80px;
+    margin-left: 40px;
+    color: #575757;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.angle-icon .pi {
+    line-height: 80px;
+    font-size: 24px;
+}
+
+.angle-icon {
+    margin-left: 5px;
+}
+
+.sidebar-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    border-top: 1px solid #bdbdbd;
+    width: 24%;
+    display: inline-flex;
+}
+
+.sidebar-controls .gear-icon {
+    background-color: #919191;
+    width: 80px;
+    height: 100%;
+    text-align: center;
+}
+
+.sidebar-controls .gear-icon .pi {
+    font-size: 30px;
+    position: relative;
+    top: calc(50% - 12px);
+    color: #ffffff;
+}
+
+.divider {
+    width: 1px;
+    height: 18px;
+    background-color: #dcdcdc;
+    margin: 5px 8px 0 8px;
+}
+
+.view-controls {
+    position: absolute;
+    right: 100px;
+    display: inline-flex;
+}
+
+.view-controls span {
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 23px;
+    color: #6A6A6A;
+}
+
+.view-controls .ui-inputswitch {
+    font-size: 11px;
+    width: 42px;
+    vertical-align: middle;
+}
+
+.view-controls i {
+    color: #848484;
+}
+
+.view-controls .ui-inputswitch .ui-inputswitch-slider {
+    font-size: 11px;
+}
+
+.sticky-header{
+    position: fixed;
+    width: 80%;
+    height: 76px;
+    top: 0px;
+    background: #fff;
+    z-index: 100;
+    border-bottom: 0.5px solid #cec9c9;
+    border-radius: 2px;
+}
+
+.sticky-header .data-sets-main {
+    padding: 10px 0 0 5px;
+    display: flex;
+}
+
+.header-block-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-block-2 .breadcrumb-main .ui-breadcrumb {
+    border: none;
+    padding-bottom: 5px;
+}
+
+.sticky-header .data-sets-main .add-data-set {
+    color: #3d94ce;
+}
+
+.sticky-header .data-sets-main .add-data-set .pi, .sticky-header .data-sets-main .access-list .pi{
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.sticky-header .data-sets-main .access-list .pi {
+    font-size: 15px;
+}
+
+.sticky-header .data-sets-main .add-data-set span, .sticky-header .data-sets-main .access-list span{
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+.sticky-header .data-sets-main .access-list span {
+    font-size: 13px;
+    color: #565656;
+    text-decoration: underline;
+}
+
+.fields-main {
+    position: fixed;
+    top: 80px;
+    overflow-y: scroll; 
+    height: 100%;
+    width: 100%;
+}
+
+.flex-container{
+    height: 488px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: dodgerblue;
+}
+
+.flex-container > div {
+    background-color: #fff;
+    margin: 10px;
+    width: 50px;
+    padding: 10px;
+    font: 20px;
+}
+
+
+#wrapper {
+    width: 100%;
+    background-color: #fff;
+  }
+  
+  
+  #top-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    background-color: green;
+  }
+  
+  #side-nav {
+    position: fixed;
+    width: 250px;
+    height:100vh;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    background-color: red;
+    top: 60px;
+  }
+  
+  #content-wrapper {
+    margin: 60px 0 0 250px;
+    padding: 0 30px;
+    overflow-y: scroll;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height:110vh;
+    background-color: blue;
+  }
