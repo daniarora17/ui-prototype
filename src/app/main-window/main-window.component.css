@@ -5,6 +5,7 @@ table, td, th {
 table {
     border-collapse: collapse;
     width: 100%;
+    border: none;
 }
 
 th, td {
@@ -17,4 +18,20 @@ th, td {
 
 .delete-icon .pi-times-circle{
     vertical-align: bottom;
+}
+
+.pi{
+    font-size: 1em;
+}
+
+body .ui-table .ui-table-tbody > tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+body .ui-table .ui-table-tbody > tr > td:last-child {
+    border: none;
+}
+
+h3 {
+    margin-bottom: 10px;
 }

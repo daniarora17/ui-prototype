@@ -128,9 +128,16 @@ export const vnosSidebar = {
 }
 
 export const complexJson = {
-    'ipsec-nm-tunnel': [{
-        'ipv4-addresses': '1.2.3.4',
-        'ipv6-addresses': '3.4.45.8'
+    'ipv4-address': [{
+        'ipv4 address': '1.2.3.4',
+        'prefix': '24'
+    },
+    {
+        'ipv4 address': '1.3.56.7',
+        'prefix': '8'
+    }],
+    'ipv6-address': [{
+        'ipv6 address': '7.7.5.3'
     }]
 };
 
@@ -800,6 +807,22 @@ export const jsonbydeepika = {
                                                 "type": "str"
                                             },
                                             "label": "ipv4 address"
+                                        }, {
+                                            "data": {
+                                                "pattern": {
+                                                    "pattern": "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))"
+                                                },
+                                                "parent": "/vnos/ucpe-settings/ipsec-nm-tunnel/ipsec-nm-tunnel-interfaces/ipv4-addresses/",
+                                                "key": "ipv4-address",
+                                                "is-visible": "true",
+                                                "choice": [
+                                                    "dynamic-or-static-ipv4",
+                                                    "static"
+                                                ],
+                                                "edit-by": "LE",
+                                                "type": "str"
+                                            },
+                                            "label": "prefix"
                                         }
                                     ]
                                 },
@@ -1144,7 +1167,7 @@ export const jsonbydeepika = {
                     },
                     "label": "primary vlan id"
                 }
-             ]
+            ]
         }
     ]
 };

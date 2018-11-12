@@ -1,85 +1,71 @@
-import { Component, OnInit, Input, DoCheck, ViewChild, ElementRef, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, Input, DoCheck, ViewEncapsulation } from '@angular/core';
 import { listRoles, complexJson } from '../mocks/vnos-model.mocks';
 
 @Component({
   selector: 'app-main-window',
   templateUrl: './main-window.component.html',
-  styleUrls: ['./main-window.component.css']
+  styleUrls: ['./main-window.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class MainWindowComponent implements OnInit, DoCheck, AfterViewChecked {
+export class MainWindowComponent implements OnInit, DoCheck {
 
   @Input() data: any;
   @Input() selectedItem: string;
-  @Input() type:string;
+  @Input() type: string;
   @Input() parentType: string;
   cols: any[];
   table: any[];
-  trackList: number = 0;
+  trackList = 0;
 
-  constructor(private cdRef : ChangeDetectorRef) { }
+  constructor() { }
 
   ngOnInit() {
-    /*if(this.data[0].data.parentType === 'nestedList'){
-      this.cols = [];
-      this.table = [];
-      for(let value in listRoles["interface-roles"][0]["ethernet-settings"][0]){
-        this.cols.push({field: value, header: value});
-      }
-      this.table= listRoles["interface-roles"][0]["ethernet-settings"]; 
-    }*/
     this.cols = [];
     this.table = [];
-    for(let value in complexJson["ipsec-nm-tunnel"][0]){
-      this.cols.push({field: value, header: value});
+    if (this.type === 'list' && this.parentType === 'list') {
+      for (const value of this.data) {
+        this.cols.push({ field: value['label'], header: value['label'] });
+      }
+      this.table = complexJson[this.data[0].data.key];
     }
-
-    this.table = complexJson["ipsec-nm-tunnel"];
-    
   }
-
-  ngAfterViewChecked(){
-    this.cdRef.detectChanges();
-  }
-
-
 
   getMargin(item) {
     let key;
-    if(this.trackList >= 0 && this.trackList < 2 && item.type === 'list'){
+    if (this.trackList >= 0 && this.trackList < 2 && item.type === 'list') {
       ++this.trackList;
     }
-    if(item.parent){
+    if (item.parent) {
       key = item.parent;
-    }else{
+    } else {
       key = item;
     }
     const multiplier = key.split('/');
-    return (multiplier.length*20) + 'px';
+    return (multiplier.length * 20) + 'px';
   }
 
   ngDoCheck() {
     if (this.selectedItem) {
-      console.log(this.selectedItem);
-      let heading = this.contains('h3',this.selectedItem);
-      if(heading.length === 1){
-         heading[0].scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+      const heading = this.contains('h3', this.selectedItem);
+      if (heading.length === 1) {
+        heading[0].scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
         return;
-      }else if(heading.length === 2){
-        heading[1].scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+      } else if (heading.length === 2) {
+        heading[1].scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
         return;
       }
-      let container = this.contains('p', this.selectedItem);
+      const container = this.contains('p', this.selectedItem);
       if (container.length > 1) {
-        container[1].scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+        container[1].scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
       } else {
-        container[0].scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+        container[0].scrollIntoView({ behavior: "smooth", block: "start", inline: "end" });
       }
-
     }
+    this.selectedItem = null;
   }
 
   contains(selector, text) {
-    var elements = document.querySelectorAll(selector);
+    const elements = document.querySelectorAll(selector);
     return Array.prototype.filter.call(elements, function (element) {
       return text === element.innerText.trim();
     });

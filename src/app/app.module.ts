@@ -1,13 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { TreeModule }  from 'primeng/tree';
-import {InputTextModule} from 'primeng/inputtext';
+import { TreeModule } from 'primeng/tree';
+import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import {InputSwitchModule} from 'primeng/inputswitch';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { AppComponent } from './app.component';
@@ -29,7 +31,8 @@ import { MainWindowComponent } from './main-window/main-window.component';
     SidebarModule,
     TableModule,
     BreadcrumbModule,
-    InputSwitchModule
+    InputSwitchModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

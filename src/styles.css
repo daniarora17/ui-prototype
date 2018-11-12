@@ -5,6 +5,6 @@
     src: url(assets/fonts/ATTAleckSans_Rg.ttf) format("truetype");
 }
 
-* {
+body {
     font-family: 'aleck';
 }
